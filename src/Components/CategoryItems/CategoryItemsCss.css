@@ -1,0 +1,47 @@
+.bigContainer{
+    width: 700px !important;
+  }
+
+ img {
+    width: 30%;
+    height: 100%;
+    opacity: 1;
+    object-fit:cover;
+    z-index: -1000;
+    -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
+    
+    transform-origin:center;
+    transform:perspective(800px) rotateY(25deg);
+    transition:0.25s;
+  }
+  
+  .containerS {
+    cursor: pointer;
+    z-index: 0;
+    max-width:500px;
+    max-height:350px;
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    
+  }
+
+  .containerS:hover img {
+    transform:perspective(800px) rotateY(0deg);
+    opacity:1;
+  }
+  
+  .containersTitle{
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
+  }
+
+  .containerS:hover .containersTitle{
+    border: 5px solid white;
+    opacity: 1;
+    z-index: 30;
+    position: absolute;
+  }
