@@ -1,9 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{ Fragment }  from "react";
+import { Link, Outlet } from "react-router-dom";
 import './NavBarCss.css'
 
 const NavBar = () => {
     return(
+        <Fragment>
         <div className="flex space-x-20 pr-20 pl-10 text-xl items-center py-3 ">
 
             <Link to="/">
@@ -19,8 +20,10 @@ const NavBar = () => {
             </Link>
 
             </div>
-  
+
         </div>
+        <Outlet/>
+        </Fragment>
     )
 }
 

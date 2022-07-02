@@ -12,7 +12,7 @@
     
     transform-origin:center;
     transform:perspective(800px) rotateY(25deg);
-    transition:0.25s;
+    transition:0.1s;
   }
   
   .containerS {
