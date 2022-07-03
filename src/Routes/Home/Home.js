@@ -36,7 +36,6 @@ const Home = () => {
       
         <div className="CategoryItemsContainer">
               {categories.map((element,index) => {
-                    console.log(element)
                    return <CategoryItems category={element} key ={index} />
               })}
 
