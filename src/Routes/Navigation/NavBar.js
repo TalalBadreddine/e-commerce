@@ -1,8 +1,16 @@
-import React,{ Fragment }  from "react";
+import React,{ Fragment, useContext, useEffect,  }  from "react";
 import { Link, Outlet } from "react-router-dom";
+import { UserContext } from "../../context/user.context";
 import './NavBarCss.css'
 
 const NavBar = () => {
+    const {currentUser, setCurrentUser} =  useContext(UserContext)
+    console.log(`current User  =>  ${currentUser}`)
+    useEffect(() => {
+        const formData = window.localStorage.getItem('userInfo')
+        formData != null && setCurrentUser(formData)
+        formData != null && window.localStorage.setItem('userInfo', JSON.stringify(formData))
+    }, [])
     return(
         <Fragment>
         <div className="flex space-x-20 pr-20 pl-10 text-xl items-center py-3 ">
@@ -14,10 +22,11 @@ const NavBar = () => {
         <div className="flex space-x-20 navBarClass font-mono items-center ">
             <Link to="/Shop">SHOP</Link>
             <Link to="/Contact">CONTACT</Link>
-            <Link to="/SignIn">SIGN IN</Link>
+            <Link to="/Auth">SIGN IN</Link>
             <Link to="/Payments">
                 <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="40px" height="40px"><path d="M 1 3 L 1 15 L 3 15 L 3 48 L 47 48 L 47 15 L 49 15 L 49 3 Z M 3 5 L 47 5 L 47 13 L 3 13 Z M 5 15 L 45 15 L 45 46 L 5 46 Z M 17.5 19 C 15.578125 19 14 20.578125 14 22.5 C 14 24.421875 15.578125 26 17.5 26 L 32.5 26 C 34.421875 26 36 24.421875 36 22.5 C 36 20.578125 34.421875 19 32.5 19 Z M 17.5 21 L 32.5 21 C 33.339844 21 34 21.660156 34 22.5 C 34 23.339844 33.339844 24 32.5 24 L 17.5 24 C 16.660156 24 16 23.339844 16 22.5 C 16 21.660156 16.660156 21 17.5 21 Z"/></svg>
             </Link>
+            {currentUser && <h1>Noice</h1>}
 
             </div>
 

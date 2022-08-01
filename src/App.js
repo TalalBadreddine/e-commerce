@@ -1,7 +1,7 @@
 import NavBar from "./Routes/Navigation/NavBar";
 import { Route,Routes } from "react-router-dom";
 import Home from "./Routes/Home/Home";
-import SignIn from "./Routes/SignIn/SignIn";
+import Authentication from "./Routes/Authentication/Authentication";
 import Shop from "./Routes/Shop/Shop";
 import Contact from "./Routes/ContactUs/ContactUs";
 import Payments from "./Routes/Payments/Payments";
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element = {<NavBar />}>
 
               <Route  index path="/" element = {<Home />}></Route>
-              <Route path="SignIn" element = {<SignIn />}></Route>
+              <Route path="Auth" element = {<Authentication />}></Route>
               <Route path="Shop" element = {<Shop />}></Route>
               <Route path="Contact" element = {<Contact/>}></Route>
               <Route path="Payments" element = {<Payments />}></Route>

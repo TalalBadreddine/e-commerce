@@ -1,8 +1,4 @@
-.bigContainer{
-    width: 700px !important;
-  }
-
- img {
+.img {
     width: 30%;
     height: 100%;
     opacity: 1;
@@ -28,7 +24,7 @@
     
   }
 
-  .containerS:hover img {
+  .containerS:hover .img {
     transform:perspective(800px) rotateY(0deg);
     opacity:1;
   }

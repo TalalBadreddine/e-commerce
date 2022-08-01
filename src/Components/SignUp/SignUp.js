@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {createAuthUserWithEmailAndPassword, createUserDocFromAuth} from '../../Utils/FireBase/FireBaseUtils'
+import FormInput from '../FormInput/FormInput'
 
 const defaultFormFields = {
     displayName: '',
@@ -22,7 +23,6 @@ const SignUp = () => {
         try{
 
             const {user} = await createAuthUserWithEmailAndPassword(email, password)
-            
             await createUserDocFromAuth(user, {displayName})
 
         }
@@ -42,27 +42,29 @@ const SignUp = () => {
     }
 
     return(
-        <div>
+        <div className="w-auto rounded-3xl border border-black ml-2 grid justify-center py-4 space-y-6 " >
 
-            <h1>SignUp Page</h1>
+            <div className="text-4xl font-bold ">
+                <h1>SignUp</h1>
+            </div>
 
-            <form onSubmit={ handleSubmit}>
+            <form onSubmit={ handleSubmit} className=" space-y-5 inline-block m-auto  ">
 
-                <label>Display Name</label>
-                <input type='name' name="displayName" onChange={handleChange} value={displayName}/>
+                <FormInput label = 'DisplayName' type='name' name="displayName" onChange={handleChange} placeholder="Display Name" value={displayName}  />
 
-                <label>email</label>
-                <input type='email' name="email" onChange={handleChange} value={email} />
+                <FormInput label = 'Email' type='email' name="email" onChange={handleChange} value={email} placeholder="email"/>
 
-                <label>password</label>
-                <input type='password' name="password" onChange={handleChange} value={password} />
+                <FormInput label = 'Password' type='password' name="password" onChange={handleChange} value={password} placeholder="*******" />
 
-                <label>confirmPassword</label>
-                <input type='password' name="confirmPassword" onChange={handleChange}  value={confirmPassword}/>
+                <FormInput label = 'Re-Password' type='password' name="confirmPassword" onChange={handleChange} placeholder="*******"  value={confirmPassword} />
 
-                <button>Submit</button>
+            <div className=" w-32 h-12 m-auto">
+                <button className="text-center w-full bg-green-500 px-6 py-2 h-full rounded-3xl text-white font-bold hover:bg-green-600">Submit</button>
+            </div>
 
             </form>
+
+
         </div>
     )
 }
