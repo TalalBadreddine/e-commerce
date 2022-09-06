@@ -27,9 +27,8 @@ const NavBar = () => {
                     {
                      currentUser ?  <span className="hover:cursor-pointer" onClick={handleLogout}>Sign Out</span>  : <Link to='/Auth'>Sign In</Link>
                         }
-                    <Link to="/Payments">
-                       <CartIcon></CartIcon>
-                    </Link>
+                        
+                    <CartIcon></CartIcon>
 
                 </div>
 
