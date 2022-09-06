@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import { UserContext } from "../../context/user.context";
 import {createAuthUserWithEmailAndPassword, createUserDocFromAuth} from '../../Utils/FireBase/FireBaseUtils'
 import FormInput from '../FormInput/FormInput'
 
@@ -12,6 +13,11 @@ const defaultFormFields = {
 const SignUp = () => {
     const [formInformation, setFormInformation] = useState(defaultFormFields)
     const {displayName, email, password, confirmPassword} = formInformation
+    const {setCurrentUser} = useContext(UserContext)
+
+    const resetFormFields = () => {
+        setFormInformation(defaultFormFields)
+    }
 
     const handleSubmit = async (action) => {
         action.preventDefault()
@@ -23,7 +29,7 @@ const SignUp = () => {
         try{
 
             const {user} = await createAuthUserWithEmailAndPassword(email, password)
-            await createUserDocFromAuth(user, {displayName})
+            resetFormFields()
 
         }
         catch(err){
@@ -42,7 +48,7 @@ const SignUp = () => {
     }
 
     return(
-        <div className="w-auto rounded-3xl border border-black ml-2 grid justify-center py-4 space-y-6 " >
+        <div className="w-auto rounded-3xl ml-2 grid justify-center py-4 space-y-6 " >
 
             <div className="text-4xl font-bold ">
                 <h1>SignUp</h1>
@@ -59,7 +65,7 @@ const SignUp = () => {
                 <FormInput label = 'Re-Password' type='password' name="confirmPassword" onChange={handleChange} placeholder="*******"  value={confirmPassword} />
 
             <div className=" w-32 h-12 m-auto">
-                <button className="text-center w-full bg-green-500 px-6 py-2 h-full rounded-3xl text-white font-bold hover:bg-green-600">Submit</button>
+                <button className="text-center w-full bg-purple-500 px-6 py-2 h-full rounded-3xl text-white font-bold hover:bg-purple-600">Submit</button>
             </div>
 
             </form>

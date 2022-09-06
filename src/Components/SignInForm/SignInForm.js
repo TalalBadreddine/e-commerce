@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import FormInput from "../FormInput/FormInput";
 import { signInWithGooglePopUp, createUserDocFromAuth, signInUserWithEmailAndPassword } from "../../Utils/FireBase/FireBaseUtils";
-import { UserContext } from '../../context/user.context' 
 
 let defaultFormValues = {
     email: '',
@@ -12,7 +11,6 @@ let defaultFormValues = {
 const SignInForm = () => {
     const [formValue, setFormValue] = useState(defaultFormValues)
     const {email, password} = formValue
-    const {setCurrentUser} = useContext(UserContext)
 
     const logInWithGoogle = async (action) => {
         action.preventDefault()
@@ -29,9 +27,9 @@ const SignInForm = () => {
 
         try{
             const user = await signInUserWithEmailAndPassword(email, password)
-            console.log(user)
-            setCurrentUser(user)
+            setFormValue(defaultFormValues)
         }
+        
         catch(err){
 
             switch(err.code){
@@ -54,19 +52,21 @@ const SignInForm = () => {
     }
 
     return (
-        <form className="grid justify-center  rounded-xl space-y-4 justify-center border border-black py-10" onSubmit={handleSignIn}>
+        <form className="grid rounded-xl space-y-4 justify-center  py-6" onSubmit={handleSignIn}>
             <h1 className="text-4xl font-bold"> Sign In </h1>
-            <div className=" w-auto inline-block ">
+            <div className=" w-auto inline-block pt-4 ">
                 <FormInput label='Email' type='email' name="email" onChange={handleChange} required placeholder="john@gmail.com" value={email} ></FormInput>
                 <FormInput label='Password' type='password' name="password" onChange={handleChange} required placeholder="********" value={password} ></FormInput>
             </div>
 
-            <button type="submit" className="py-4 px-2 block rounded-2xl text-white font-normal hover:bg-green-600 bg-green-500 w-64"  >Sign In</button>
+            <div className="space-y-10 pt-12">
+            <button type="submit" className="py-4 px-2 block rounded-2xl text-white font-normal hover:bg-blue-600 bg-blue-400 w-64"  >Sign In</button>
 
 
-            <button onClick={logInWithGoogle} type='submit' className="py-4 px-2 w-64 block rounded-2xl text-white font-normal hover:bg-green-600 bg-green-500 ">
+            <button onClick={logInWithGoogle} type='submit' className="py-4 px-2 w-64 block rounded-2xl text-white font-normal hover:bg-blue-600 bg-blue-400 ">
                 Sign In With Google
             </button>
+            </div>
 
         </form>
     )
