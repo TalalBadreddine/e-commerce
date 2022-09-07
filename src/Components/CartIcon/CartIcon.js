@@ -3,8 +3,10 @@ import { ReactComponent as ShoppingBag } from '../../assets/shoppingBag.svg'
 import style from './CartIcon.module.css'
 import { shoppingBagContext } from '../../context/shoppingBag.context';
 import CartItem from '../CartItem/CartItem';
+import { useNavigate } from 'react-router-dom';
 
 const CartIcon = () => {
+    const navigate = useNavigate()
     const { isCartOpen, setIsCartOpen, cartItems, cartItemsCount } = useContext(shoppingBagContext)
 
     return (
@@ -29,7 +31,7 @@ const CartIcon = () => {
                      })
                      : 'Cart is Empty'}
                 </div>
-                <button className={style.checkoutBtn}>GO TO CHECKOUT</button>
+                <button className={style.checkoutBtn} onClick={() => navigate('Checkout')}>GO TO CHECKOUT</button>
 
             </div>}
 

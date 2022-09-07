@@ -1,0 +1,27 @@
+.headers{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.611);
+    text-align: center;
+}
+
+.container{
+    padding: 3% 10%;
+}
+
+.cartItemsContainer{
+    height: 700px;
+    overflow-y: auto;
+}
+
+.totalContainer{
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+}
