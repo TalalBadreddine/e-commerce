@@ -4,7 +4,7 @@ import Home from "./Routes/Home/Home";
 import Authentication from "./Routes/Authentication/Authentication";
 import Shop from "./Routes/Shop/Shop";
 import Contact from "./Routes/ContactUs/ContactUs";
-import Payments from "./Routes/Payments/Payments";
+import Checkout from "./Routes/Checkout/Checkout";
 import './index.css'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
               <Route path="Auth" element = {<Authentication />}></Route>
               <Route path="Shop" element = {<Shop />}></Route>
               <Route path="Contact" element = {<Contact/>}></Route>
-              <Route path="Payments" element = {<Payments />}></Route>
+              <Route path="Checkout" element = {<Checkout />}></Route>
 
           </Route>
 

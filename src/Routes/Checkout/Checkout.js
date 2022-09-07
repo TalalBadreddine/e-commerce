@@ -1,9 +1,9 @@
 import React from "react";
 
-const Payments = () => {
+const Checkout = () => {
     return (
         <h1> I am Payments</h1>
     )
 }
 
-export default Payments
+export default Checkout
