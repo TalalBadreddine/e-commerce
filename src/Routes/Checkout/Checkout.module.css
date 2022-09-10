@@ -2,13 +2,21 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(5, 1fr);
-    justify-content: space-between;
     margin-top: 20px;
     font-size: 1.4rem;
     font-weight: bold;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.611);
     text-align: center;
+    text-transform: capitalize;
+}
+
+div.headers :last-child :last-child{
+    text-align: right;
+}
+
+div.headers :first-child :first-child{
+    text-align: left;
 }
 
 .container{

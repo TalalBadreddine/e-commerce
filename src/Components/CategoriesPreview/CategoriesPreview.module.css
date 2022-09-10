@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 25px;
+    column-gap: 20px;
+    padding: 0px 10px;
+}
+
+.containerTitle{
+    font-size: 3rem;
+    text-transform: capitalize;
+    margin-top: 3rem;
+    font-weight: bold;
+    padding:  10px 10px;
+    display: inline-block;
+}
+
+.containerTitle:hover{
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}

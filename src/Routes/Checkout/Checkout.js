@@ -11,7 +11,7 @@ const Checkout = () => {
         <div className={style.container}>
 
 
-            <div className={style.headers}>
+            <div className={style.headers} >
                 {['Product', 'Description', 'Quantite', 'Price', 'Remove'].map((header) =>
                     <div key={header}>
                         <h1>{header}</h1>

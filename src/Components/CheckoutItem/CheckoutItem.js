@@ -18,9 +18,9 @@ const CheckoutItem = ({checkoutItem}) => {
 
             <div>
                 <span className={style.quantiteContainer}>
-                    <button onClick={() => decrementItemInCart(checkoutItem)}> - </button>
+                    <button onClick={() => decrementItemInCart(checkoutItem)} className={style.arrow}> &#10094; </button>
                     <h1 className={style.quantite}>{quantite}</h1>
-                    <button onClick={() => addItemToCart(checkoutItem)}> + </button>
+                    <button onClick={() => addItemToCart(checkoutItem)} className={style.arrow}> &#10095; </button>
                 </span>
             </div>
 
@@ -28,8 +28,8 @@ const CheckoutItem = ({checkoutItem}) => {
                 <h1>{price}$</h1>
             </div>
 
-            <div>
-                <button onClick={() => removeCartItem(checkoutItem)}>X</button>
+            <div className={style.removeBtnContainer}>
+                <button onClick={() => removeCartItem(checkoutItem)}>&#10005;</button>
             </div>
         </div>
     )
