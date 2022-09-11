@@ -20,7 +20,7 @@ const Category = () => {
             <div>
                 <h1 className={style.title}>{category}</h1>
                 <div className={style.container}>
-                    {products.map((item) => <ProductCard product={item}></ProductCard>)}
+                    {products.map((item) => <ProductCard product={item} key={item.id}></ProductCard>)}
                 </div>
             </div>
             }
