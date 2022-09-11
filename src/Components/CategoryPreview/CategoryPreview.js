@@ -1,11 +1,12 @@
 import ProductCard from '../ProductCard/ProductCard'
 import styles from './CategoryPreview.module.css'
+import { Link } from 'react-router-dom'
 
 
 const CategoryPreview = ({ title, items }) => {
     return (
         <div>
-            <h1 className={styles.containerTitle}>{title}</h1>
+            <Link to={`${title}`} className={styles.containerTitle}>{title}</Link>
             <div className={styles.container}>
                 { items && 
                     items.filter((_, index) => index < 4).map((product) => {

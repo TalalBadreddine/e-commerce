@@ -1,0 +1,15 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;   
+}
+
+.title{
+    font-weight: bold;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    padding: 0px 0px 5px ;
+}
