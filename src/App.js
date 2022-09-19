@@ -6,8 +6,29 @@ import Shop from "./Routes/Shop/Shop";
 import Contact from "./Routes/ContactUs/ContactUs";
 import Checkout from "./Routes/Checkout/Checkout";
 import './index.css'
+import { setCurrentUser } from './store/user/user.action'
+import {useDispatch} from 'react-redux'
+import {useEffect} from 'react'
+import { onAuthStateChangeListner, createUserDocFromAuth } from './Utils/FireBase/FireBaseUtils'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    const unsebscribe = onAuthStateChangeListner((user) => {
+        if(user){
+            createUserDocFromAuth(user)
+        }
+
+        dispatch(setCurrentUser(user))
+    })
+
+    return unsebscribe
+}, [])
+
+
   return (
     
     <div>

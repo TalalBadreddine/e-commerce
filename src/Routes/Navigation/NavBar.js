@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import { UserContext } from "../../context/user.context";
 import styles from './NavBarCss.module.css'
 import { signOutUser } from "../../Utils/FireBase/FireBaseUtils";
 import CartIcon from "../../Components/CartIcon/CartIcon";
+import {useSelector} from 'react-redux'
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const NavBar = () => {
-    const { currentUser, setCurrentUser } = useContext(UserContext)
-
+    const currentUser = useSelector(selectCurrentUser)
+    
     const handleLogout =  async () => {
         await signOutUser()
-        setCurrentUser(null)
     }
 
     return (

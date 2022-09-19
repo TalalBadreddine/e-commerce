@@ -1,6 +1,5 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import { createContext } from "react";
-import { createUserDocFromAuth, onAuthStateChangeListner } from "../Utils/FireBase/FireBaseUtils";
 import { createAction } from "../Utils/reducers/Reducer.utils";
 
 export const UserContext = createContext({
@@ -38,18 +37,6 @@ export const UserProvider = ({children}) => {
     }
 
     const value = {currentUser, setCurrentUser}
-
-    useEffect(() => {
-
-        onAuthStateChangeListner((user) => {
-            if(user){
-                createUserDocFromAuth(user)
-            }
-
-            setCurrentUser(user)
-        })
-
-    }, [])
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import SignUp from '../../Components/SignUp/SignUp'
 import SignInForm from '../../Components/SignInForm/SignInForm'
 import styles from './Authentication.module.css'
@@ -35,7 +35,7 @@ const Authentication = () => {
     }
 
     const handleBtnClick = (e) =>{
-        e.target.name == 'signIn' ? fillSignIn(e) : fillRegister(e)
+        e.target.name === 'signIn' ? fillSignIn(e) : fillRegister(e)
     }
 
     return (

@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import { UserContext } from "../../context/user.context";
-import {createAuthUserWithEmailAndPassword, createUserDocFromAuth} from '../../Utils/FireBase/FireBaseUtils'
+import {createAuthUserWithEmailAndPassword} from '../../Utils/FireBase/FireBaseUtils'
 import FormInput from '../FormInput/FormInput'
 
 const defaultFormFields = {
@@ -33,7 +33,7 @@ const SignUp = () => {
 
         }
         catch(err){
-            if(err.code == 'auth/email-already-in-use'){
+            if(err.code === 'auth/email-already-in-use'){
                 alert("Email already in use")
                 return 
             }
